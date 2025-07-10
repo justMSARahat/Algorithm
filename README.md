@@ -54,4 +54,3 @@ Web Developer | SEO Specialist | C Programming Enthusiast
 
 ---
 
-If you want, I can help you add badges, example problems, or folder structure! Just say the word. 😊
