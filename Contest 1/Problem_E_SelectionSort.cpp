@@ -19,9 +19,6 @@ int SelectionSort(int arr[], int x){
             swaps++; // Increment swap count if a swap is made
         } // Only swap if a smaller element is found
     }
-
-
-
     return swaps;
 }
 int main(){
