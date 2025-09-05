@@ -7,31 +7,33 @@ void Marge(int l, int mid, int h, int array[], int sort[])
     int j = mid + 1;
     int k = l;
 
-    while (i <= mid && j <=h)
+    while (i <= mid && j <= h)
     {
-        if(array[i] < array[j] ){
+        if (array[i] < array[j])
+        {
             sort[k] = array[i];
             i++;
             k++;
         }
-        else{
+        else
+        {
             sort[k] = array[j];
             j++;
             k++;
-
         }
     }
-    for(; i<=mid; i++){
-            sort[k] = array[i];
-            k++;
-
+    for (; i <= mid; i++)
+    {
+        sort[k] = array[i];
+        k++;
     }
-    for(; j<=h; j++){
-            sort[k] = array[j];
-            k++;
-
+    for (; j <= h; j++)
+    {
+        sort[k] = array[j];
+        k++;
     }
-    for(int t=l; t<=h; t++){
+    for (int t = l; t <= h; t++)
+    {
         array[t] = sort[t];
     }
 }
@@ -66,10 +68,10 @@ int main()
     cout << "***********************" << endl;
     cout << endl;
 
-    MargeSort(array, 0, x-1, sort);
+    MargeSort(array, 0, x - 1, sort);
 
     for (int i = 0; i < x; i++)
     {
-        cout << array[i]<< " ";
+        cout << array[i] << " ";
     }
 }
