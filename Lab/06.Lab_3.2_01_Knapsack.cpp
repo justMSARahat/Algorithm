@@ -34,7 +34,9 @@ int main()
             else if (w >= weight[i - 1])
             {
                 // item include kora jabe → max of include or exclude
-                dp[i][w] = max(dp[i - 1][w], dp[i - 1][w - weight[i - 1]] + profit[i - 1]);
+                dp[i][w] = max(
+                    dp[i - 1][w],
+                    dp[i - 1][w - weight[i - 1]] + profit[i - 1]);
             }
             else
             {

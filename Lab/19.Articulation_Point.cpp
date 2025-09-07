@@ -3,15 +3,14 @@ using namespace std;
 
 int graph[1001][1001];
 int visited[1001];
-int low[1001];
+int isap[1001];
 int dis[1001];
-int isAP[1001];
+int low[1001];
 int timer = 0;
 int n, e;
 
 void dfs(int u, int parent)
 {
-
     visited[u] = 1;
     dis[u] = low[u] = ++timer;
     int child = 0;
@@ -22,9 +21,11 @@ void dfs(int u, int parent)
         {
             child++;
             dfs(v, u);
-
             low[u] = min(low[u], low[v]);
-            isAP[u] = true;
+            if (parent != -1 && low[v] >= dis[u])
+            {
+                isap[u] = true;
+            }
         }
         else if (v != parent && graph[u][v] != 0)
         {
@@ -33,7 +34,7 @@ void dfs(int u, int parent)
     }
     if (parent == -1 && child > 1)
     {
-        isAP[u] = true;
+        isap[u] = true;
     }
 }
 
@@ -41,18 +42,18 @@ int main()
 {
     cin >> n >> e;
     int u, v;
-    for (int i = 1; i <= e; i++)
+    for (int i = 0; i < e; i++)
     {
         cin >> u >> v;
         graph[u][v] = 1;
         graph[v][u] = 1;
     }
     dfs(1, -1);
-    for (int i = 0; i <= e; i++)
+    for (int i = 0; i <= n; i++)
     {
-        if (isAP[i] == true)
+        if (isap[i] == true)
         {
-            cout << i << " -> Is an Ap" << endl;
+            cout << i << " AP" << endl;
         }
     }
 }
@@ -65,4 +66,3 @@ int main()
 // 3 5
 // 1 Is an Ap
 // 3 Is an Ap
-// 4 Is an Ap
